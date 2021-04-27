@@ -8,8 +8,6 @@ import ReceptionsComponent from './components/ReceptionsComponent.vue';
 import ReceptionComponent from './components/ReceptionComponent.vue';
 import InfoComponent from './components/InfoComponent.vue';
 import DashboardComponent from './components/DashboardComponent.vue';
-
-// import Component404 from './components/Component404.vue';
  
 export const routes = [
     {
@@ -32,14 +30,9 @@ export const routes = [
         path: '/profile',
         component: ProfileComponent
     },
-    // {
-    //     name: '/404',
-    //     path: '/404',
-    //     component: Component404
-    // },
     {
         name: '/profile/doctors',
-        path: '/profile/doctors',
+        path: '/profile/doctors?id=:id',
         component: DoctorsComponent
     },
     {
@@ -50,7 +43,7 @@ export const routes = [
     },
     {
         name: '/receptions',
-        path: '/receptions',
+        path: '/receptions?id=:id',
         component: ReceptionsComponent
     },
     {
@@ -58,11 +51,6 @@ export const routes = [
         path: '/reception?id=:id',
         component: ReceptionComponent
     },
-    // {
-    //     name: '/reception/edit',
-    //     path: '/reception?id=:id',
-    //     // redirect: to => {'/receptions' },
-    // },
     {
         name: '/reception/delete',
         path: '/reception?id=:id'
