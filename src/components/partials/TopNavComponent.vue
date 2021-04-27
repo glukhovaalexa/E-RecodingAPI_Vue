@@ -39,12 +39,12 @@ export default {
   },
   methods: {
     checkAuth() {
-      console.log(localStorage.auth);
       return localStorage.auth;
     },
 
     logout() {
         localStorage.auth = "";
+        localStorage.city = '';
 
         this.axios
         .get(process.env.VUE_APP_API_URL + `/logout`)
