@@ -112,7 +112,7 @@ import AlertComponent from './partials/AlertComponent.vue'
                         if(response.data.errors){
                             (this.errors = response.data.errors)
                         }else{
-                            this.auth();
+                            this.auth(response.data[0].id);
                             this.$router.push({ name: "/profile/doctors" })
                         }
                     })
@@ -128,8 +128,9 @@ import AlertComponent from './partials/AlertComponent.vue'
                     .finally(() => this.loading = false)
             },
 
-            auth() {
-                localStorage.auth = this.user.id
+            auth(id) {
+                localStorage.auth = id
+                localStorage.city = this.user.city_id
             }
 
         }
