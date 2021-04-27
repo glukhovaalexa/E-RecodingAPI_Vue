@@ -58,7 +58,7 @@ export default {
     },
     getReception() {
       this.reception.doctor_id = this.doctor.id;
-      this.reception.user_id = 1;
+      this.reception.user_id = localStorage.auth;
       this.reception.date = this.formatDate(this.date);
       return this.reception;
     },
