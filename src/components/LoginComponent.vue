@@ -65,7 +65,7 @@ export default {
           if (response.data.errors) {
             this.errors = response.data.errors;
           } else {
-            this.auth(response.data.user.id);
+            this.auth(response.data.user.id, response.data.user.city_id);
             this.$router.push({ name: "/profile/doctors" });
           }
         })
@@ -73,9 +73,9 @@ export default {
         .finally(() => (this.loading = false));
     },
 
-    auth(id) {
-      console.log(id);
+    auth(id, city_id) {
         localStorage.auth = id;
+        localStorage.city = city_id;
     },
   },
 };
