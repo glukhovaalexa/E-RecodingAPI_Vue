@@ -28,12 +28,19 @@ export const routes = [
     {
         name: 'profile',
         path: '/profile',
-        component: ProfileComponent
+        component: ProfileComponent,
+        beforeEnter: (to, from, next) => {
+            if(localStorage.auth)
+            {
+                next()
+            }
+            next({ name: 'signin' })
+        }
     },
     {
         name: '/profile/doctors',
         path: '/profile/doctors?id=:id',
-        component: DoctorsComponent
+        component: DoctorsComponent,
     },
     {
         name: '/profile/doctor',
@@ -44,7 +51,7 @@ export const routes = [
     {
         name: '/receptions',
         path: '/receptions?id=:id',
-        component: ReceptionsComponent
+        component: ReceptionsComponent,
     },
     {
         name: '/reception',
