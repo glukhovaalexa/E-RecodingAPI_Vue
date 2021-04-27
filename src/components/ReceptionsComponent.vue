@@ -9,6 +9,7 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">Doctor</th>
+              <th scope="col">Speciality</th>
               <th scope="col">Room number</th>
               <th scope="col">Date</th>
               <th scope="col"></th>
@@ -21,6 +22,7 @@
               <td>
                 {{ reception.doctor.name }} {{ reception.doctor.lastname }}
               </td>
+              <td>{{ reception.doctor.speciality.name }}</td>
               <td>{{ reception.doctor.roomNumber }}</td>
               <td>{{ reception.date }}</td>
               <td>
@@ -78,7 +80,7 @@ export default {
     },
     getReceptions() {
       this.axios
-        .get(process.env.VUE_APP_API_URL + "/receptions")
+        .get(process.env.VUE_APP_API_URL + `/receptions?id=${localStorage.auth}`)
         .then((response) => (this.receptions = response.data))
         .catch((err) => console.log(err))
         .finally(() => (this.loading = false));
