@@ -28,14 +28,7 @@ export const routes = [
     {
         name: 'profile',
         path: '/profile',
-        component: ProfileComponent,
-        beforeEnter: (to, from, next) => {
-            if(localStorage.auth)
-            {
-                next()
-            }
-            next({ name: 'signin' })
-        }
+        component: ProfileComponent
     },
     {
         name: '/profile/doctors',

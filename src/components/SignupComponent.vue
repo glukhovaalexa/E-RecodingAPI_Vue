@@ -28,7 +28,6 @@
           <select v-model="user.city_id" class="form-control"
             placeholder="City"
             required>
-                <option disabled selected value="">Выберите один из вариантов</option>
                 <option v-for="city in cities" :key="city.id" v-bind:value="city.id">{{city.name}}</option>
           </select>
           <label for="Phone" class="visually-hidden">Phone</label>
