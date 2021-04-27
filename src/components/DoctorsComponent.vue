@@ -11,6 +11,8 @@
               <th scope="col">First</th>
               <th scope="col">Last</th>
               <th scope="col">Room number</th>
+              <th scope="col">Speciality</th>
+              <th scope="col">Hospital name</th>
             </tr>
           </thead>
           <tbody>
@@ -24,6 +26,8 @@
                 <td>{{ doctor.name }}</td>
                 <td>{{ doctor.lastname }}</td>
                 <td>{{ doctor.roomNumber }}</td>
+                <td>{{ doctor.speciality.name }}</td>
+                <td>{{ doctor.hospital.name }}</td>
               </tr>
             </router-link>
           </tbody>
@@ -37,13 +41,15 @@
 export default {
   data() {
     return {
-      doctors: {},
+        doctors: {},
+        city_id: ''
     };
   },
   created() {
-    this.axios
+        this.city_id = localStorage.city
+        this.axios
 
-      .get(process.env.VUE_APP_API_URL + "/doctors")
+      .get(process.env.VUE_APP_API_URL + `/doctors?id=${this.city_id}`)
       .then((response) => (this.doctors = response.data))
       .catch((err) => console.log(err))
       .finally(() => (this.loading = false));
