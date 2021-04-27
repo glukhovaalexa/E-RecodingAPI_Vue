@@ -102,7 +102,6 @@ import AlertComponent from './partials/AlertComponent.vue'
         },
         mounted() {
             this.getCities();
-                console.log(localStorage)
         },
         methods: {
             addUser() {
